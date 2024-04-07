@@ -7,6 +7,7 @@ sudo apt update -y && sudo apt upgrade -y
 sudo apt install -y mc
 sudo apt install -y curl
 sudo apt install -y nmap
+sudo apt install -y wget
 
 # Отключение двустороннего пинга на VPS:
 echo 1 | sudo tee /proc/sys/net/ipv4/icmp_echo_ignore_all
@@ -25,24 +26,24 @@ sudo ufw allow https
 sudo ufw enable
 
 # Установка и настройка Logwatch
-sudo apt install -y logwatch
-sudo cp /usr/share/logwatch/default.conf/logwatch.conf /etc/logwatch/conf/logwatch.conf
+# sudo apt install -y logwatch
+# sudo cp /usr/share/logwatch/default.conf/logwatch.conf /etc/logwatch/conf/logwatch.conf
 # sudo nano /etc/logwatch/conf/logwatch.conf
 # MailTo = name@gmail.com #вписать своё
 # Настройте адрес электронной почты для получения отчетов и другие параметры
 
 # Установка и настройка резервного копирования
-sudo apt install -y rsync
+# sudo apt install -y rsync
 # Добавьте команды для регулярного создания резервных копий в удобном вам формате
 
 # Создание пользователей с ограниченными правами доступа
-sudo adduser gorodetskiy --disabled-password # Замените "gorodetskiy" на нужное имя пользователя
-sudo adduser gorodetskiy sudo # Назначение пользователя в группу sudo для выполнения привилегированных задач
+# sudo adduser gorodetskiy --disabled-password # Замените "gorodetskiy" на нужное имя пользователя
+# sudo adduser gorodetskiy sudo # Назначение пользователя в группу sudo для выполнения привилегированных задач
 
 # Запрет входа пользователя root по SSH
-sudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' 
-/etc/ssh/sshd_config
-sudo systemctl restart sshd
+# sudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' 
+# /etc/ssh/sshd_config
+# sudo systemctl restart sshd
 
 # Отключение ненужных служб и сервисов
 # sudo systemctl disable  # Замените  на конкретное имя сервиса
@@ -53,4 +54,4 @@ bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.
 # Дополнительные настройки по необходимости
 
 # Перезагрузка сервера для применения изменений
-sudo reboot
+# sudo reboot
