@@ -26,21 +26,18 @@ sudo ufw enable
 
 # Установка и настройка Logwatch
 sudo apt install -y logwatch
-sudo cp /usr/share/logwatch/default.conf/logwatch.conf 
-/etc/logwatch/conf/logwatch.conf
-sudo nano /etc/logwatch/conf/logwatch.conf
-# Настройте адрес электронной почты для получения отчетов и другие 
-параметры
+sudo cp /usr/share/logwatch/default.conf/logwatch.conf /etc/logwatch/conf/logwatch.conf
+# sudo nano /etc/logwatch/conf/logwatch.conf
+# MailTo = name@gmail.com #вписать своё
+# Настройте адрес электронной почты для получения отчетов и другие параметры
 
 # Установка и настройка резервного копирования
 sudo apt install -y rsync
-# Добавьте команды для регулярного создания резервных копий в удобном вам 
-формате
+# Добавьте команды для регулярного создания резервных копий в удобном вам формате
 
 # Создание пользователей с ограниченными правами доступа
-sudo adduser gorodetskiy # Замените "user1" на нужное имя пользователя
-sudo adduser gorodetskiy sudo # Назначение пользователя в группу sudo для 
-выполнения привилегированных задач
+sudo adduser gorodetskiy --disabled-password # Замените "gorodetskiy" на нужное имя пользователя
+sudo adduser gorodetskiy sudo # Назначение пользователя в группу sudo для выполнения привилегированных задач
 
 # Запрет входа пользователя root по SSH
 sudo sed -i 's/PermitRootLogin yes/PermitRootLogin no/g' 
